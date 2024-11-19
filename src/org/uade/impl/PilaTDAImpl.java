@@ -12,12 +12,13 @@ public class PilaTDAImpl implements PilaTDA {
             this.num = num;
         }
     }
-    private Nodo inicio = null;
-    private int longitud = 0;
+    private Nodo inicio;
+    private int longitud;
 
     @Override
     public void inicializarPila() {
-        PilaTDA pilaImpl = new PilaTDAImpl();
+        inicio = null;
+        longitud = 0;
     }
 
     @Override

@@ -17,7 +17,8 @@ public class ColaTDAImpl implements ColaTDA {
 
     @Override
     public void inicializarCola() {
-        ColaTDA colaImpl = new ColaTDAImpl();
+        cabeza = null;
+        ultimo = null;
     }
 
     @Override
