@@ -2,43 +2,57 @@ package org.uade.impl;
 
 import org.uade.api.PilaTDA;
 
-import java.util.Scanner;
-
 public class PilaTDAImpl implements PilaTDA {
-    //definir estructuras de datos
-    private PilaTDA pila;
-    public void setPila(PilaTDA pila) {
-        this.pila = pila;
+
+    private static class Nodo{
+        public int num;
+        public Nodo siguiente = null;
+
+        public Nodo(int num) {
+            this.num = num;
+        }
     }
-    public PilaTDA getPila() {
-        return pila;
-    }
+    private Nodo inicio = null;
+    private int longitud = 0;
 
     @Override
     public void inicializarPila() {
-        pila.inicializarPila();
+        PilaTDA pilaImpl = new PilaTDAImpl();
     }
 
     @Override
     public void apilar(int x) {
-        pila.apilar(x);
+        Nodo nuevo = new Nodo(x);
+        //agrego el valor al  nuevo nodo
+        nuevo.siguiente = inicio;
+        inicio = nuevo;
+        longitud++;
     }
 
     @Override
     public void desapilar() {
-        pila.desapilar();
+        if(inicio != null){
+            Nodo eliminar = inicio;
+            //asigno como primer nodo al siguiente de la  pila
+            inicio = inicio.siguiente;
+            eliminar.siguiente = null;
+            longitud--;  //Decrementa el contador de la longitud de la pila
+        }
     }
 
     @Override
     public int tope() {
-        return 0;
+        if(inicio==null){
+            System.out.println("La pila se encuentra vacia.");
+            return 0;
+        } else{
+            return inicio.num;
+        }
     }
 
     @Override
     public boolean pilaVacia() {
-        return false;
+        return inicio == null;
     }
-
-
 
 }
