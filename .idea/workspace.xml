@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="abf0ef2f-3ffd-4553-8622-544ecb81920d" name="Changes" comment="implementacionesPrueba1">
+    <list default="true" id="abf0ef2f-3ffd-4553-8622-544ecb81920d" name="Changes" comment="correcciones">
+      <change afterPath="$PROJECT_DIR$/src/org/uade/app/AppConjunto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/uade/impl/ABBTDAImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/uade/util/OperacionesConjunto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/uade/impl/ColaPrioridadTDAImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/impl/ColaPrioridadTDAImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/uade/impl/ColaTDAImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/impl/ColaTDAImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/uade/impl/PilaTDAImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/impl/PilaTDAImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/uade/impl/ConjuntoTDAImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/impl/ConjuntoTDAImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +53,9 @@
   &quot;keyToString&quot;: {
     &quot;Application.AppCola.executor&quot;: &quot;Run&quot;,
     &quot;Application.AppColaPrioridad.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AppConjunto.executor&quot;: &quot;Run&quot;,
     &quot;Application.AppPila.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
@@ -62,7 +66,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.AppCola">
+  <component name="RunManager" selected="Application.AppConjunto">
     <configuration name="AppCola" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.uade.app.AppCola" />
       <module name="TPsAlgEstdatosII" />
@@ -89,6 +93,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AppConjunto" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.uade.app.AppConjunto" />
+      <module name="TPsAlgEstdatosII" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.uade.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AppPila" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.uade.app.AppPila" />
       <module name="TPsAlgEstdatosII" />
@@ -102,8 +119,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="TPsAlgEstdatosII" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AppConjunto" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.AppCola" />
         <item itemvalue="Application.AppColaPrioridad" />
         <item itemvalue="Application.AppPila" />
@@ -143,7 +169,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731989295313</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="correcciones">
+      <option name="closed" value="true" />
+      <created>1731990302408</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1731990302408</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -173,6 +207,7 @@
     <MESSAGE value="xml2" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
     <MESSAGE value="implementacionesPrueba1" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementacionesPrueba1" />
+    <MESSAGE value="correcciones" />
+    <option name="LAST_COMMIT_MESSAGE" value="correcciones" />
   </component>
 </project>
