@@ -29,19 +29,19 @@ public class ColaPrioridadTDAImpl implements ColaPrioridadTDA {
             cabeza=nuevo;
         } else {
             //La PRIORIDAD de la cabeza es menor a la del nuevo nodo. => el nuevo nodo va antes y  la cabeza tiene un valor nuevo.
-            if (cabeza.prioridad > p) {
+            if (cabeza.prioridad < p) {
                 nuevo.siguiente = cabeza;
                 cabeza = nuevo;
             } else {
                 // La PRIORIDAD de la cabeza es mayor a la del nuevo nodo. =>  Recorremos la cola comparando las prioridades de
                 // los elementos para encontrar la posición adecuada del nuevo nodo.
-                while (comienzo.siguiente != null && comienzo.siguiente.prioridad <= p) {
+                while (comienzo.siguiente != null && comienzo.siguiente.prioridad >= p) {
                     comienzo = comienzo.siguiente;
                 }
                 nuevo.siguiente = comienzo.siguiente;
                 comienzo.siguiente = nuevo;
             }
-        } //ultimo = nuevo;
+        } ultimo = nuevo;
     }
 
     @Override
@@ -75,7 +75,7 @@ public class ColaPrioridadTDAImpl implements ColaPrioridadTDA {
         if(cabeza==null){
             return  0;
         } else {
-            return ultimo.prioridad;
+            return cabeza.prioridad;
         }
     }
 }

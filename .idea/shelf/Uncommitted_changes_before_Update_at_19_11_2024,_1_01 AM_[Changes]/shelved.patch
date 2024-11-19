@@ -1,0 +1,349 @@
+Index: src/org/uade/impl/ColaPrioridadTDAImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.uade.impl;\n\nimport org.uade.api.ColaPrioridadTDA;\n\npublic class ColaPrioridadTDAImpl implements ColaPrioridadTDA {\n    private static class Nodo{\n        public int num;\n        public Nodo siguiente = null;\n        public int prioridad;\n\n        public Nodo(int num, int prioridad) {\n            this.num = num;\n            this.prioridad = prioridad;\n        }\n    }\n    private Nodo cabeza;\n    private Nodo ultimo;\n\n    @Override\n    public void inicializarCola() {\n        ColaPrioridadTDA colaPriImpl = new ColaPrioridadTDAImpl ();\n    }\n\n    @Override\n    public void acolarPrioridad(int x, int p) {\n       Nodo nuevo = new Nodo(x, p);\n       Nodo comienzo = cabeza; //podría ir dentro del segundo else\n        if(cabeza==null){\n            cabeza=nuevo;\n        } else {\n            //La PRIORIDAD de la cabeza es menor a la del nuevo nodo. => el nuevo nodo va antes y  la cabeza tiene un valor nuevo.\n            if (cabeza.prioridad > p) {\n                nuevo.siguiente = cabeza;\n                cabeza = nuevo;\n            } else {\n                // La PRIORIDAD de la cabeza es mayor a la del nuevo nodo. =>  Recorremos la cola comparando las prioridades de\n                // los elementos para encontrar la posición adecuada del nuevo nodo.\n                while (comienzo.siguiente != null && comienzo.siguiente.prioridad <= p) {\n                    comienzo = comienzo.siguiente;\n                }\n                nuevo.siguiente = comienzo.siguiente;\n                comienzo.siguiente = nuevo;\n            }\n        } //ultimo = nuevo;\n    }\n\n    @Override\n    public void desacolar() {\n        if(cabeza != null){\n            Nodo eliminar = cabeza;\n            cabeza = cabeza.siguiente;\n            eliminar.siguiente = null;\n            if(cabeza == null){\n                ultimo = null;\n            }\n        }\n    }\n\n    @Override\n    public int primero() {\n        if(cabeza==null){\n            return  0;\n        } else {\n            return cabeza.num;\n        }\n    }\n\n    @Override\n    public boolean colaVacia() {\n        return cabeza==null;\n    }\n\n    @Override\n    public int prioridad() {\n        if(cabeza==null){\n            return  0;\n        } else {\n            return ultimo.prioridad;\n        }\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/org/uade/impl/ColaPrioridadTDAImpl.java b/src/org/uade/impl/ColaPrioridadTDAImpl.java
+--- a/src/org/uade/impl/ColaPrioridadTDAImpl.java	(revision 63e48c1dd79819a4f174750c85d87c6d276c8271)
++++ b/src/org/uade/impl/ColaPrioridadTDAImpl.java	(date 1731988779089)
+@@ -29,19 +29,19 @@
+             cabeza=nuevo;
+         } else {
+             //La PRIORIDAD de la cabeza es menor a la del nuevo nodo. => el nuevo nodo va antes y  la cabeza tiene un valor nuevo.
+-            if (cabeza.prioridad > p) {
++            if (cabeza.prioridad < p) {
+                 nuevo.siguiente = cabeza;
+                 cabeza = nuevo;
+             } else {
+                 // La PRIORIDAD de la cabeza es mayor a la del nuevo nodo. =>  Recorremos la cola comparando las prioridades de
+                 // los elementos para encontrar la posición adecuada del nuevo nodo.
+-                while (comienzo.siguiente != null && comienzo.siguiente.prioridad <= p) {
++                while (comienzo.siguiente != null && comienzo.siguiente.prioridad >= p) {
+                     comienzo = comienzo.siguiente;
+                 }
+                 nuevo.siguiente = comienzo.siguiente;
+                 comienzo.siguiente = nuevo;
+             }
+-        } //ultimo = nuevo;
++        } ultimo = nuevo;
+     }
+ 
+     @Override
+@@ -75,7 +75,7 @@
+         if(cabeza==null){
+             return  0;
+         } else {
+-            return ultimo.prioridad;
++            return cabeza.prioridad;
+         }
+     }
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"abf0ef2f-3ffd-4553-8622-544ecb81920d\" name=\"Changes\" comment=\"\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Interface\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\">{\n  &quot;lastFilter&quot;: {\n    &quot;state&quot;: &quot;OPEN&quot;,\n    &quot;assignee&quot;: &quot;JoLazarte&quot;\n  }\n}</component>\n  <component name=\"GithubPullRequestsUISettings\">{\n  &quot;selectedUrlAndAccountId&quot;: {\n    &quot;url&quot;: &quot;https://github.com/JoLazarte/TPs-Alg_EstDatos2.git&quot;,\n    &quot;accountId&quot;: &quot;67cfaaee-5261-4908-8877-9ce471b6f447&quot;\n  }\n}</component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 0\n}</component>\n  <component name=\"ProjectId\" id=\"2nd7va5I7nDxXaBjadLBEnq8Uob\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;Application.AppPila.executor&quot;: &quot;Run&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\n    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;\n  }\n}</component>\n  <component name=\"RunManager\">\n    <configuration name=\"AppPila\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"org.uade.app.AppPila\" />\n      <module name=\"TPsAlgEstdatosII\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"org.uade.app.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.AppPila\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"abf0ef2f-3ffd-4553-8622-544ecb81920d\" name=\"Changes\" comment=\"\" />\n      <created>1729291330296</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1729291330296</updated>\n    </task>\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State>\n              <option name=\"FILTERS\">\n                <map>\n                  <entry key=\"branch\">\n                    <value>\n                      <list>\n                        <option value=\"HEAD\" />\n                      </list>\n                    </value>\n                  </entry>\n                </map>\n              </option>\n            </State>\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 63e48c1dd79819a4f174750c85d87c6d276c8271)
++++ b/.idea/workspace.xml	(date 1731987891198)
+@@ -4,7 +4,14 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="abf0ef2f-3ffd-4553-8622-544ecb81920d" name="Changes" comment="" />
++    <list default="true" id="abf0ef2f-3ffd-4553-8622-544ecb81920d" name="Changes" comment="xml2">
++      <change afterPath="$PROJECT_DIR$/src/org/uade/app/AppCola.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/org/uade/app/AppColaPrioridad.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/org/uade/util/OperacionesCola.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/org/uade/util/OperacionesColaPrioridad.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/org/uade/impl/ColaPrioridadTDAImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/impl/ColaPrioridadTDAImpl.java" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -42,19 +49,48 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;Application.AppPila.executor&quot;: &quot;Run&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "Application.AppCola.executor": "Run",
++    "Application.AppColaPrioridad.executor": "Run",
++    "Application.AppPila.executor": "Run",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
++    "git-widget-placeholder": "main",
++    "kotlin-language-version-configured": "true",
++    "project.structure.last.edited": "Project",
++    "project.structure.proportion": "0.15",
++    "project.structure.side.proportion": "0.0",
++    "settings.editor.selected.configurable": "preferences.lookFeel"
+   }
+-}</component>
+-  <component name="RunManager">
++}]]></component>
++  <component name="RunManager" selected="Application.AppColaPrioridad">
++    <configuration name="AppCola" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="org.uade.app.AppCola" />
++      <module name="TPsAlgEstdatosII" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="org.uade.app.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="AppColaPrioridad" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="org.uade.app.AppColaPrioridad" />
++      <module name="TPsAlgEstdatosII" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="org.uade.app.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
+     <configuration name="AppPila" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="org.uade.app.AppPila" />
+       <module name="TPsAlgEstdatosII" />
+@@ -70,6 +106,8 @@
+     </configuration>
+     <recent_temporary>
+       <list>
++        <item itemvalue="Application.AppColaPrioridad" />
++        <item itemvalue="Application.AppCola" />
+         <item itemvalue="Application.AppPila" />
+       </list>
+     </recent_temporary>
+@@ -83,6 +121,15 @@
+       <option name="presentableId" value="Default" />
+       <updated>1729291330296</updated>
+     </task>
++    <task id="LOCAL-00001" summary="xml2">
++      <option name="closed" value="true" />
++      <created>1731983304078</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1731983304079</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -108,4 +155,19 @@
+       </map>
+     </option>
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="xml2" />
++    <option name="LAST_COMMIT_MESSAGE" value="xml2" />
++  </component>
++  <component name="XDebuggerManager">
++    <breakpoint-manager>
++      <breakpoints>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/org/uade/app/AppColaPrioridad.java</url>
++          <line>5</line>
++          <option name="timeStamp" value="1" />
++        </line-breakpoint>
++      </breakpoints>
++    </breakpoint-manager>
++  </component>
+ </project>
+\ No newline at end of file
+Index: src/org/uade/app/AppColaPrioridad.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/org/uade/app/AppColaPrioridad.java b/src/org/uade/app/AppColaPrioridad.java
+new file mode 100644
+--- /dev/null	(date 1731988430275)
++++ b/src/org/uade/app/AppColaPrioridad.java	(date 1731988430275)
+@@ -0,0 +1,44 @@
++package org.uade.app;
++import org.uade.api.ColaPrioridadTDA;
++import org.uade.impl.ColaPrioridadTDAImpl;
++import org.uade.util.OperacionesColaPrioridad;
++
++public class AppColaPrioridad {
++    public static void main(String[] args) {
++        AppColaPrioridad app = new AppColaPrioridad();
++        app.execute();
++    }
++    public void execute() {
++        ColaPrioridadTDA cola = new ColaPrioridadTDAImpl();
++        cola.inicializarCola();
++
++        // Ejemplo de carga de la pila
++        cola.acolarPrioridad(3, 9);
++        cola.acolarPrioridad(10, 5);
++        cola.acolarPrioridad(4, 1);
++        cola.acolarPrioridad(2, 4);
++        cola.acolarPrioridad(5, 5);
++        cola.acolarPrioridad(12,9);
++        cola.acolarPrioridad(0, 2);
++
++        eliminarPorPrioridad(cola, 4);
++
++        OperacionesColaPrioridad op = new OperacionesColaPrioridad();
++        op.mostrar(cola);
++    }
++
++    private void eliminarPorPrioridad(ColaPrioridadTDA cola, int prioridadEliminar) {
++        if (!cola.colaVacia()) {
++            int elemento = cola.primero();
++            int prioridad = cola.prioridad();
++            cola.desacolar();
++
++            eliminarPorPrioridad(cola, prioridadEliminar);
++
++            // Volver a acolar solo si la prioridad no coincide con la que se quiere eliminar
++            if (prioridad != prioridadEliminar) {
++                cola.acolarPrioridad(elemento, prioridad);
++            }
++        }
++    }
++}
+Index: src/org/uade/util/OperacionesColaPrioridad.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/org/uade/util/OperacionesColaPrioridad.java b/src/org/uade/util/OperacionesColaPrioridad.java
+new file mode 100644
+--- /dev/null	(date 1731986083012)
++++ b/src/org/uade/util/OperacionesColaPrioridad.java	(date 1731986083012)
+@@ -0,0 +1,24 @@
++package org.uade.util;
++import org.uade.api.ColaPrioridadTDA;
++import java.util.Scanner;
++
++public class OperacionesColaPrioridad extends OperacionesCola{
++    Scanner scCP = new Scanner(System.in);
++    public void mostrar(ColaPrioridadTDA cola) {
++        while (!cola.colaVacia()) {
++            System.out.println(cola.primero());
++            cola.desacolar();
++        }
++    }
++    public void llenar(ColaPrioridadTDA cola) {
++        System.out.println("Ingrese la cantidad de elementos para la cola: ");
++        int n = scCP.nextInt();
++
++        System.out.println("Ingrese los elementos de la cola: ");
++        for (int i = 0; i < n; i++) {
++            int elemento = scCP.nextInt();
++            int prioridad = 0;
++            cola.acolarPrioridad(elemento, prioridad);
++        }
++    }
++}
+Index: src/org/uade/util/OperacionesCola.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/org/uade/util/OperacionesCola.java b/src/org/uade/util/OperacionesCola.java
+new file mode 100644
+--- /dev/null	(date 1731983945952)
++++ b/src/org/uade/util/OperacionesCola.java	(date 1731983945952)
+@@ -0,0 +1,22 @@
++package org.uade.util;
++import org.uade.api.ColaTDA;
++import java.util.Scanner;
++public class OperacionesCola {
++    Scanner sc = new Scanner(System.in);
++    public void mostrar(ColaTDA cola) {
++        while (!cola.colaVacia()) {
++            System.out.println(cola.primero());
++            cola.desacolar();
++        }
++    }
++    public void llenar(ColaTDA cola) {
++        System.out.println("Ingrese la cantidad de elementos para la cola: ");
++        int n = sc.nextInt();
++
++        System.out.println("Ingrese los elementos de la cola: ");
++        for (int i = 0; i < n; i++) {
++            int elemento = sc.nextInt();
++            cola.acolar(elemento);
++        }
++    }
++}
+Index: src/org/uade/app/AppCola.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/org/uade/app/AppCola.java b/src/org/uade/app/AppCola.java
+new file mode 100644
+--- /dev/null	(date 1731984407648)
++++ b/src/org/uade/app/AppCola.java	(date 1731984407648)
+@@ -0,0 +1,44 @@
++package org.uade.app;
++import org.uade.api.ColaTDA;
++import org.uade.impl.ColaTDAImpl;
++import org.uade.util.OperacionesCola;
++
++public class AppCola {
++    public static void main(String[] args) {
++        AppCola app = new AppCola();
++        app.execute();
++    }
++
++    public void execute() {
++        ColaTDA colaA = new ColaTDAImpl();
++        ColaTDA colaB = new ColaTDAImpl();
++        colaA.inicializarCola();
++        colaB.inicializarCola();
++
++        OperacionesCola operacion = new OperacionesCola();
++        operacion.llenar(colaA);
++        operacion.llenar(colaB);
++
++        // Intercalamos las colas
++        ColaTDA colaC = intercalarColas(colaA, colaB);
++        operacion.mostrar(colaC);
++    }
++
++    private ColaTDA intercalarColas(ColaTDA colaA, ColaTDA colaB) {
++        ColaTDA colaC = new ColaTDAImpl();
++        colaC.inicializarCola();
++
++        // Mientras alguna de las colas A o B no esté vacía
++        while (!colaA.colaVacia() || !colaB.colaVacia()) {
++            if (!colaA.colaVacia()) {
++                colaC.acolar(colaA.primero());
++                colaA.desacolar();
++            }
++            if (!colaB.colaVacia()) {
++                colaC.acolar(colaB.primero());
++                colaB.desacolar();
++            }
++        }
++        return colaC;
++    }
++}
