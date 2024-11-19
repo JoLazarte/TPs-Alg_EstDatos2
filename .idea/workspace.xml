@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="abf0ef2f-3ffd-4553-8622-544ecb81920d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/uade/app/AppPila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/app/AppPila.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/uade/impl/ColaPrioridadTDAImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/impl/ColaPrioridadTDAImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/uade/impl/ColaTDAImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/impl/ColaTDAImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/uade/impl/PilaTDAImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/impl/PilaTDAImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/uade/util/OperacionesPila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/util/OperacionesPila.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
