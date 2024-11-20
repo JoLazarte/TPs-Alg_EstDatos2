@@ -1,10 +1,10 @@
 package org.uade.api;
 
 public interface DiccionarioSimpleTDA {
-    void InicializarDiccionario();
-    void Agregar(int clave, int valor);
-    void Eliminar(int clave);
-    int Recuperar(int clave);
-    ConjuntoTDA Claves();
+    void inicializarDiccionario();
+    void agregar(int clave, int valor);
+    void eliminar(int clave);
+    int recuperar(int clave);
+    ConjuntoTDA claves();
 
 }

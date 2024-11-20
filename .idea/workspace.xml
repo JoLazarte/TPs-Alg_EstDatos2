@@ -4,22 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="abf0ef2f-3ffd-4553-8622-544ecb81920d" name="Changes" comment="implementaciones2">
-      <change afterPath="$PROJECT_DIR$/src/org/uade/app/AppABB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/uade/app/AppGrafo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/uade/util/OperacionesABB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/uade/util/OperacionesGrafo.java" afterDir="false" />
+    <list default="true" id="abf0ef2f-3ffd-4553-8622-544ecb81920d" name="Changes" comment="implementaciones3">
+      <change afterPath="$PROJECT_DIR$/src/org/uade/app/AppDiccionarioS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/uade/util/OperacionesDiccionario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/uade/api/GrafoTDA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/api/GrafoTDA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/uade/api/MaxHeapTDA.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/uade/api/MinHeapTDA.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/uade/impl/ABBTDAImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/impl/ABBTDAImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/uade/impl/ColaPrioridadTDAImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/impl/ColaPrioridadTDAImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/uade/api/DiccionarioSimpleTDA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/api/DiccionarioSimpleTDA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/uade/impl/DiccionarioMultTDAImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/impl/DiccionarioMultTDAImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/uade/impl/DiccionarioSimTDAImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/impl/DiccionarioSimTDAImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/uade/impl/GrafoTDAImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/impl/GrafoTDAImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/uade/impl/MaxHeapTDAImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/uade/impl/MinHeapTDAImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/uade/util/OperacionesConjunto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/util/OperacionesConjunto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/uade/util/OperacionesCola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/util/OperacionesCola.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/uade/util/OperacionesGrafo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/util/OperacionesGrafo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +57,7 @@
     "Application.AppCola.executor": "Run",
     "Application.AppColaPrioridad.executor": "Run",
     "Application.AppConjunto.executor": "Run",
+    "Application.AppDiccionarioS.executor": "Run",
     "Application.AppGrafo.executor": "Run",
     "Application.AppPila.executor": "Run",
     "Application.Main.executor": "Run",
@@ -77,7 +71,7 @@
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.AppGrafo">
+  <component name="RunManager" selected="Application.AppDiccionarioS">
     <configuration name="AppABB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.uade.app.AppABB" />
       <module name="TPsAlgEstdatosII" />
@@ -91,8 +85,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppCola" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.uade.app.AppCola" />
+    <configuration name="AppConjunto" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.uade.app.AppConjunto" />
       <module name="TPsAlgEstdatosII" />
       <extension name="coverage">
         <pattern>
@@ -104,8 +98,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppConjunto" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.uade.app.AppConjunto" />
+    <configuration name="AppDiccionarioS" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.uade.app.AppDiccionarioS" />
       <module name="TPsAlgEstdatosII" />
       <extension name="coverage">
         <pattern>
@@ -139,11 +133,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AppDiccionarioS" />
         <item itemvalue="Application.AppGrafo" />
         <item itemvalue="Application.AppABB" />
         <item itemvalue="Application.AppConjunto" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.AppCola" />
       </list>
     </recent_temporary>
   </component>
@@ -196,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732057861359</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="implementaciones3">
+      <option name="closed" value="true" />
+      <created>1732128544393</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1732128544393</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -228,7 +230,8 @@
     <MESSAGE value="implementacionesPrueba1" />
     <MESSAGE value="correcciones" />
     <MESSAGE value="implementaciones2" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementaciones2" />
+    <MESSAGE value="implementaciones3" />
+    <option name="LAST_COMMIT_MESSAGE" value="implementaciones3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

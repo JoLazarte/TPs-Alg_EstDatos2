@@ -1,5 +1,7 @@
 package org.uade.util;
 import org.uade.api.ColaTDA;
+import org.uade.impl.ColaTDAImpl;
+
 import java.util.Scanner;
 public class OperacionesCola {
     Scanner sc = new Scanner(System.in);
@@ -18,5 +20,9 @@ public class OperacionesCola {
             int elemento = sc.nextInt();
             cola.acolar(elemento);
         }
+    }
+    public ColaTDA copiarCola(ColaTDA colaOriginal) {
+        ColaTDA colaCopia = new ColaTDAImpl();
+        return colaCopia;
     }
 }
