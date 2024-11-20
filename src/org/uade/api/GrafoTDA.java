@@ -14,7 +14,7 @@ public interface GrafoTDA {
 
     void eliminarArista(int v1, int v2);
 
-    boolean ExisteArista(int v1, int v2);
+    boolean existeArista(int v1, int v2);
 
     int pesoArista(int v1, int v2);
 }

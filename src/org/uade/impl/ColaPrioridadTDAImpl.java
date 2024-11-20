@@ -25,7 +25,7 @@ public class ColaPrioridadTDAImpl implements ColaPrioridadTDA {
     @Override
     public void acolarPrioridad(int x, int p) {
        Nodo nuevo = new Nodo(x, p);
-       Nodo comienzo = cabeza; //podría ir dentro del segundo else
+       Nodo actual = cabeza; //podría ir dentro del segundo else
         if(cabeza==null){
             cabeza=nuevo;
         } else {
@@ -36,11 +36,11 @@ public class ColaPrioridadTDAImpl implements ColaPrioridadTDA {
             } else {
                 // La PRIORIDAD de la cabeza es mayor a la del nuevo nodo. => Recorremos la cola comparando las prioridades de
                 // los elementos para encontrar la posición adecuada del nuevo nodo.
-                while (comienzo.siguiente != null && comienzo.siguiente.prioridad >= p) {
-                    comienzo = comienzo.siguiente;
+                while (actual.siguiente != null && actual.siguiente.prioridad >= p) {
+                    actual = actual.siguiente;
                 }
-                nuevo.siguiente = comienzo.siguiente;
-                comienzo.siguiente = nuevo;
+                nuevo.siguiente = actual.siguiente;
+                actual.siguiente = nuevo;
             }
         } ultimo = nuevo;
     }
@@ -48,9 +48,9 @@ public class ColaPrioridadTDAImpl implements ColaPrioridadTDA {
     @Override
     public void desacolar() {
         if(cabeza != null){
-            Nodo eliminar = cabeza;
+            Nodo eliminar = cabeza;//
             cabeza = cabeza.siguiente;
-            eliminar.siguiente = null;
+            eliminar.siguiente = null;//
             if(cabeza == null){
                 ultimo = null;
             }

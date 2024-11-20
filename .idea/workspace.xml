@@ -4,13 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="abf0ef2f-3ffd-4553-8622-544ecb81920d" name="Changes" comment="correcciones">
-      <change afterPath="$PROJECT_DIR$/src/org/uade/app/AppConjunto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/uade/impl/ABBTDAImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/uade/util/OperacionesConjunto.java" afterDir="false" />
+    <list default="true" id="abf0ef2f-3ffd-4553-8622-544ecb81920d" name="Changes" comment="implementaciones2">
+      <change afterPath="$PROJECT_DIR$/src/org/uade/app/AppABB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/uade/app/AppGrafo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/uade/util/OperacionesABB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/uade/util/OperacionesGrafo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/uade/impl/ConjuntoTDAImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/impl/ConjuntoTDAImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/uade/api/GrafoTDA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/api/GrafoTDA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/uade/api/MaxHeapTDA.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/uade/api/MinHeapTDA.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/uade/impl/ABBTDAImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/impl/ABBTDAImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/uade/impl/ColaPrioridadTDAImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/impl/ColaPrioridadTDAImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/uade/impl/DiccionarioSimTDAImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/impl/DiccionarioSimTDAImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/uade/impl/GrafoTDAImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/impl/GrafoTDAImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/uade/impl/MaxHeapTDAImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/uade/impl/MinHeapTDAImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/uade/util/OperacionesConjunto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/uade/util/OperacionesConjunto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,26 +58,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.AppCola.executor&quot;: &quot;Run&quot;,
-    &quot;Application.AppColaPrioridad.executor&quot;: &quot;Run&quot;,
-    &quot;Application.AppConjunto.executor&quot;: &quot;Run&quot;,
-    &quot;Application.AppPila.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AppABB.executor": "Run",
+    "Application.AppCola.executor": "Run",
+    "Application.AppColaPrioridad.executor": "Run",
+    "Application.AppConjunto.executor": "Run",
+    "Application.AppGrafo.executor": "Run",
+    "Application.AppPila.executor": "Run",
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
-  <component name="RunManager" selected="Application.AppConjunto">
-    <configuration name="AppCola" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.uade.app.AppCola" />
+}]]></component>
+  <component name="RunManager" selected="Application.AppGrafo">
+    <configuration name="AppABB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.uade.app.AppABB" />
       <module name="TPsAlgEstdatosII" />
       <extension name="coverage">
         <pattern>
@@ -80,8 +91,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppColaPrioridad" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.uade.app.AppColaPrioridad" />
+    <configuration name="AppCola" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.uade.app.AppCola" />
       <module name="TPsAlgEstdatosII" />
       <extension name="coverage">
         <pattern>
@@ -106,8 +117,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppPila" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.uade.app.AppPila" />
+    <configuration name="AppGrafo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.uade.app.AppGrafo" />
       <module name="TPsAlgEstdatosII" />
       <extension name="coverage">
         <pattern>
@@ -128,11 +139,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AppGrafo" />
+        <item itemvalue="Application.AppABB" />
         <item itemvalue="Application.AppConjunto" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.AppCola" />
-        <item itemvalue="Application.AppColaPrioridad" />
-        <item itemvalue="Application.AppPila" />
       </list>
     </recent_temporary>
   </component>
@@ -177,7 +188,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731990302408</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="implementaciones2">
+      <option name="closed" value="true" />
+      <created>1732057861359</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1732057861359</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -208,6 +227,17 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
     <MESSAGE value="implementacionesPrueba1" />
     <MESSAGE value="correcciones" />
-    <option name="LAST_COMMIT_MESSAGE" value="correcciones" />
+    <MESSAGE value="implementaciones2" />
+    <option name="LAST_COMMIT_MESSAGE" value="implementaciones2" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -22,4 +22,26 @@ public class OperacionesConjunto {
             temp.sacar(elemento);
         }
     }
+    public ConjuntoTDA copiarConjunto(ConjuntoTDA conjuntoOriginal) {
+        ConjuntoTDA copia = new ConjuntoTDAImpl();
+        copia.inicializarConjunto();
+
+        ConjuntoTDA conjuntoTemp = new ConjuntoTDAImpl(); // Temporal para iterar sin modificar el original
+        conjuntoTemp.inicializarConjunto();
+
+        while (!conjuntoOriginal.conjuntoVacio()) {
+            int elemento = conjuntoOriginal.elegir();
+            conjuntoOriginal.sacar(elemento);
+            copia.agregar(elemento);
+            conjuntoTemp.agregar(elemento);
+        }
+
+        while (!conjuntoTemp.conjuntoVacio()) {
+            int elemento = conjuntoTemp.elegir();
+            conjuntoTemp.sacar(elemento);
+            conjuntoOriginal.agregar(elemento);
+        }
+
+        return copia;
+    }
 }
