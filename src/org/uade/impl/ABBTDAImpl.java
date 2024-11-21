@@ -28,10 +28,6 @@ public class ABBTDAImpl  implements ABBTDA {
     public int raiz() {
         return root.value;
     }
-    // Private constructor for subtree creation
-    //private ABBTDAImpl(Nodo root) {
-       // this.root = root;
-    //}
 
     @Override
     public ABBTDA hijoIzq() {
@@ -61,63 +57,35 @@ public class ABBTDAImpl  implements ABBTDA {
 
     @Override
     public void agregar(int x) {
-        root = insertNodo(root, x);
+       insertNodo(root, x);
     }
     private Nodo insertNodo(Nodo current, int n) {
-        if (current == null) {
-            //current = new Nodo(n);
-            return  new Nodo(n);
-        }
-        if (n < current.value) {
-            //if(current.hijoIzq == null){
-                //current.hijoIzq = new Nodo(n);
-           // }
-            //else{
-            current.hijoIzq= insertNodo(current.hijoIzq, n);
-           // }
-            //current = current.hijoIzq;
-        }
-        else if (n > current.value) {
-            //if(current.hijoDer== null){
-                //current.hijoDer = new Nodo(n);
-            //}
-            //else{
-            current.hijoDer = insertNodo(current.hijoDer, n);
-            //}
-            //current = current.hijoDer;
-        }
+        if (current == null) return  new Nodo(n);
+        if (current.value == n)  return current;
+        if (n < current.value) current.hijoIzq = insertNodo(current.hijoIzq, n);
+        if (n > current.value) current.hijoDer = insertNodo(current.hijoDer, n);
         return current;
     }
 
     @Override
     public void eliminar(int x) {
-        root = deleteNodo(root, x);
+        //root = deleteNodo(root, x);
+        deleteNodo(root, x);
     }
 
     private Nodo deleteNodo(Nodo current, int n) {
-        if (current == null) {
-            return null;
-        }
-        if (n < current.value) {
-            current.hijoIzq= deleteNodo(current.hijoIzq, n);
-        }
-        else if (n > current.value) {
-            current.hijoDer = deleteNodo(current.hijoDer, n);
-        }
+        if (current == null) return null;
+        if (n < current.value) current.hijoIzq = deleteNodo(current.hijoIzq, n);
+        if (n > current.value) current.hijoDer = deleteNodo(current.hijoDer, n);
         else {
             // Node "current" with only one child or no child
-            if (current.hijoIzq== null) {
-                return current.hijoDer;
-            }
-            else if (current.hijoDer== null) {
-                return current.hijoIzq;
-            }
+            if (current.hijoIzq== null) return current.hijoDer;
+            if (current.hijoDer== null) return current.hijoIzq;
             // Node "current" with two children: Get the inorder successor (smallest in the right subtree)
             current.value = minValue(current.hijoDer);
             // Delete the inorder successor
             current.hijoDer = deleteNodo(current.hijoDer, current.value);
         }
-
         return current;
     }
 

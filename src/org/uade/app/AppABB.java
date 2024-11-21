@@ -1,10 +1,9 @@
 package org.uade.app;
 import org.uade.api.ABBTDA;
 import org.uade.impl.ABBTDAImpl;
-
+import org.uade.util.OperacionesArbol;
 /*
 Dado dos arboles binarios, se quiere comprobar si ambos tienen la misma estructura.
-
 Considerandos:
 - No es necesario comprobar si tienen los mismos valores.
  */
@@ -16,50 +15,81 @@ public class AppABB {
     }
 
     public void execute() {
-        ABBTDA arbol1 = new ABBTDAImpl();
-        arbol1.inicializarArbol();
-        arbol1.agregar(10);
-        arbol1.agregar(5);
-        arbol1.agregar(20);
+        ABBTDA arbol = new ABBTDAImpl();
+        arbol.inicializarArbol();
 
-        ABBTDA arbol2 = new ABBTDAImpl();
-        arbol2.inicializarArbol();
-        arbol2.agregar(15);
-        arbol2.agregar(3);
-        arbol2.agregar(25);
+        // Agregamos nodos al árbol
+        arbol.agregar(10);
+        arbol.agregar(5);
+        arbol.agregar(20);
+        arbol.agregar(3);
+        arbol.agregar(7);
+        arbol.agregar(15);
+        arbol.agregar(30);
 
-        System.out.println("¿Tienen la misma estructura?: " + mismaEstructura(arbol1, arbol2));
+        // Queremos extraer el subárbol con la raíz en el valor 5
+        ABBTDA nuevoArbol = extraerSubarbol(5, arbol);
 
-
-        ABBTDA arbol3 = new ABBTDAImpl();
-        arbol3.inicializarArbol();
-        arbol3.agregar(10);
-        arbol3.agregar(5);
-
-        ABBTDA arbol4 = new ABBTDAImpl();
-        arbol4.inicializarArbol();
-        arbol4.agregar(15);
-        arbol4.agregar(20);
-        arbol4.agregar(3);
-
-        System.out.println("¿Tienen la misma estructura?: " + mismaEstructura(arbol3, arbol4));
+        OperacionesArbol operacion = new OperacionesArbol();
+        operacion.mostrarArbolInorden(nuevoArbol);
     }
 
 
-    private boolean mismaEstructura(ABBTDA arbol1, ABBTDA arbol2) {
-        // Si ambos árboles están vacíos, tienen la misma estructura
-        if (arbol1.arbolVacio() && arbol2.arbolVacio()) {
-            return true;
-        }
+    // Metodo que busca un valor en el árbol y construye un nuevo árbol con ese valor y su subárbol
+    public ABBTDA extraerSubarbol(int valor, ABBTDA arbolOriginal) {
+        // Inicializamos un nuevo árbol para almacenar el subárbol
+        ABBTDA nuevoArbol = new ABBTDAImpl();
+        nuevoArbol.inicializarArbol();
 
-        // Si uno está vacío y el otro no, entonces no tienen la misma estructura
-        if (arbol1.arbolVacio() || arbol2.arbolVacio()) {
-            return false;
-        }
+        // Buscamos el valor en el árbol original
+        if (buscarYExtraer(arbolOriginal, nuevoArbol, valor)) {
+            // Si encontramos el nodo, eliminamos el subárbol del árbol original
+            eliminarSubarbol(arbolOriginal, valor);
 
-        // Recursivamente, comprobamos la estructura de los hijos izquierdo y derecho
-        return mismaEstructura(arbol1.hijoIzq(), arbol2.hijoIzq()) &&
-                mismaEstructura(arbol1.hijoDer(), arbol2.hijoDer());
+        }
+        System.out.println("Se eliminó ! ! !");
+        return nuevoArbol;
     }
+
+    // Metodo recursivo para buscar el nodo con el valor dado y copiar su subárbol
+    private boolean buscarYExtraer(ABBTDA origen, ABBTDA destino, int valor) {
+        if (origen.arbolVacio()) {
+            return false;  // No se encontró el valor
+        }
+
+        if (origen.raiz() == valor) {
+            copiarArbol(origen, destino);
+            // Copiamos  to do el sub arbol
+            return true;  // Se encontró el valor
+        }
+
+        // Buscamos recursivamente en el subárbol izquierdo y derecho
+        return buscarYExtraer(origen.hijoIzq(), destino, valor) || buscarYExtraer(origen.hijoDer(), destino, valor);
+    }
+
+    // Metodo para copiar el contenido de un árbol a otro
+    private void copiarArbol(ABBTDA origen, ABBTDA destino) {
+        if (!origen.arbolVacio()) {
+            destino.agregar(origen.raiz());  // Copiamos la raíz
+            copiarArbol(origen.hijoIzq(), destino);  // Copiamos el subárbol izquierdo
+            copiarArbol(origen.hijoDer(), destino);  // Copiamos el subárbol derecho
+        }
+    }
+
+    // Metodo para eliminar el subárbol con la raíz igual al valor dado
+    private void eliminarSubarbol(ABBTDA arbol, int valor) {
+        if (!arbol.arbolVacio()) {
+            if (arbol.raiz() == valor) {
+                arbol.eliminar(valor);
+
+                // Eliminamos el nodo raíz y su subárbol
+            } else {
+                eliminarSubarbol(arbol.hijoIzq(), valor);
+                eliminarSubarbol(arbol.hijoDer(), valor);
+
+            }
+        }
+    }
+
 
 }
